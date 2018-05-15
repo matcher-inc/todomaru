@@ -38,7 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'pry-rails'
 gem 'pry-doc'
-gem 'factory_girl_rails'
+gem 'factory_bot_rails'
 gem 'devise'
 
 group :development, :test do
@@ -47,6 +47,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
+  gem 'rspec-rails'
   gem 'faker'
 end
 
@@ -70,5 +71,4 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-  gem 'rspec-rails'
 end
