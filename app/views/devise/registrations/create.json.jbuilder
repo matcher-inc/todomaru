@@ -1,1 +1,1 @@
-json.user @user
+json.merge! @user.as_json
