@@ -11,7 +11,7 @@ class Web::Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super do
-      @user = resource
+      @user = current_user
       return render # redirect回避
     end
   end
