@@ -7,8 +7,8 @@ RSpec.describe Web::Users::RegistrationsController, type: :controller do
   end
 
   describe 'POST #create' do
-    let(:user) { {user: attributes_for(:user) }}
-    subject { post :create, params: user }
+    let(:user_params) { attributes_for(:user) }
+    subject { post :create, params: {user: user_params} }
     render_views
 
     it "returns response 200" do
