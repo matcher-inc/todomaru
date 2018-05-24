@@ -7,8 +7,13 @@ export default class Todo extends React.Component<any, any> {
 
   render() {
     return (
-      <div className="todos-Todo">
-        {this.props.todo.title}
+      <div className={this.props.className + ' todos-Todo'}>
+        <div className="todos-Todo_title">
+          {this.props.todo.title}
+        </div>
+        <div className="todos-Todo_deadline">
+          {this.props.todo.deadline || "[ 期日なし ]" }
+        </div>
       </div>
     );
   }
