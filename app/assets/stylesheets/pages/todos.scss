@@ -17,10 +17,9 @@
   &_sidebar {
     width: $size_sidebarWidth;
     background: #ff0;
-    display: flex;
+    padding: 15px;
   }
   &_createForm {
-    align-self: flex-end;
   }
   &_list {
     flex: 1;
