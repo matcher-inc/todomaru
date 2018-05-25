@@ -11,24 +11,44 @@ export class Index extends React.Component<any, any> {
     super(props);
     this.state = { todos: [] };
 
-    axios
-      .get(todosUrl)
-      .then(res => this.setTodos(res.data));
+    this.loadTodos();
+    this.addTodo = this.addTodo.bind(this)
+    this.createTodo = this.createTodo.bind(this)
+    this.onTodoClick = this.onTodoClick.bind(this)
   }
 
-  setTodos(todos) {
-    this.setState({ todos: todos });
+  loadTodos() {
+    axios
+      .get(todosUrl)
+      .then(res => this.setState({ todos: res.data }));
+  }
+
+  addTodo(todo) {
+    todo.id = 123;
+    this.state.todos.push(todo);
+    this.setState({ todos: this.state.todos });
+  }
+
+  createTodo(params) {
+    axios
+      .post(todosUrl, {todo: params})
+      .then(res => this.addTodo(params));
+    this.addTodo(params)
+  }
+
+  onTodoClick(todo) {
+    // TODO: routerを使ってtodo詳細へ遷移
   }
 
   render() {
-    const todos = this.state.todos.map(todo => <Todo todo={todo} key={todo.id} className="todos-Index_listItem"/> )
+    const todos = this.state.todos.map(todo => <Todo todo={todo} key={todo.id} className="todos-Index_listItem" onClick={this.onTodoClick(todo)}/> )
 
     return (
       <div className="todos-Index">
         <Header className="todos-Index_header"/>
         <div className="todos-Index_main">
           <div className="todos-Index_sidebar">
-            <CreateForm  className="todos-Index_createForm"/>
+            <CreateForm  className="todos-Index_createForm" onSubmitClick={this.createTodo}/>
           </div>
           <div className="todos-Index_list">
             { todos }
