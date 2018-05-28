@@ -33,7 +33,10 @@ export class Index extends React.Component<any, any> {
     axios
       .post(todosUrl, {todo: params})
       .then(res => this.addTodo(params));
-    this.addTodo(params)
+
+    // TODO: ちゃんとレスポンスデータを入れる
+    let tmp = JSON.parse(JSON.stringify(params));
+    this.addTodo(tmp)
   }
 
   onTodoClick(todo) {

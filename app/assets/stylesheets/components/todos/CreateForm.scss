@@ -40,6 +40,7 @@
   }
   &_textField {
     @include formStyle();
+    width: 100%;
   }
   &_textArea {
     @include formStyle();
@@ -50,5 +51,16 @@
     font-size: 80%;
     letter-spacing: 2px;
     cursor: pointer;
+  }
+
+  .react-datepicker-wrapper,
+  .react-datepicker__input-container {
+    display: block;
+  }
+  .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {
+    padding: 0;
+  }
+  .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item {
+     box-sizing: border-box;
   }
 }
