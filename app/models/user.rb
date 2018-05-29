@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :todos
+
   validates :email, uniqueness: true
   validates :name, presence: true
   validates :encrypted_password, presence: true
