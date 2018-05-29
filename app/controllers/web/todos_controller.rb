@@ -10,7 +10,7 @@ class Web::TodosController < ApplicationController
 
     def todo_params
       params.require(:todo).permit(
-        :user_id, :title, :deadline, :completed_at,
+        :user_id, :title, :detail, :deadline, :completed_at,
       )
     end
 end
