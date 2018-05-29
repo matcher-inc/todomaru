@@ -1,0 +1,2 @@
+class WebLoyalty < ApplicationLoyalty
+end
