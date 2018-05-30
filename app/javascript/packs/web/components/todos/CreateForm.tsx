@@ -35,6 +35,7 @@ export default class CreateForm extends React.Component<any, any> {
     return (
       <div className={this.props.className + ' todos-CreateForm'}>
         <form className="todos-CreateForm_form">
+
           <div className="todos-CreateForm_formRow">
             <label className="todos-CreateForm_label">タイトル</label>
             <input
@@ -45,6 +46,7 @@ export default class CreateForm extends React.Component<any, any> {
               className="todos-CreateForm_textField"
             />
           </div>
+
           <div className="todos-CreateForm_formRow">
             <label className="todos-CreateForm_label">期日</label>
             <DatePicker
@@ -59,6 +61,7 @@ export default class CreateForm extends React.Component<any, any> {
               className="todos-CreateForm_textField"
             />
           </div>
+
           <div className="todos-CreateForm_formRow">
             <label className="todos-CreateForm_label">詳細</label>
             <textarea
@@ -67,8 +70,8 @@ export default class CreateForm extends React.Component<any, any> {
               onChange={this.onChange}
               className="todos-CreateForm_textArea"
             />
-
           </div>
+
           <div className="todos-CreateForm_formRow">
             <input
               type="submit"
@@ -77,6 +80,7 @@ export default class CreateForm extends React.Component<any, any> {
               className="todos-CreateForm_submit"
             />
           </div>
+
         </form>
       </div>
     );

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as api from 'web/api';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { CreateForm, Todo, Header } from 'web/components/todos';
 
