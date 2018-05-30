@@ -11,7 +11,6 @@ export class Index extends React.Component<any, any> {
 
     this.addTodo = this.addTodo.bind(this)
     this.createTodo = this.createTodo.bind(this)
-    this.onTodoClick = this.onTodoClick.bind(this)
   }
 
   loadTodos() {
@@ -33,12 +32,18 @@ export class Index extends React.Component<any, any> {
       .then(res => this.addTodo(res.data));
   }
 
-  onTodoClick(todo) {
-    // TODO: routerを使ってtodo詳細へ遷移
-  }
-
   render() {
-    const todos = this.state.todos.map(todo => <Todo todo={todo} key={todo.id} className="todos-Index_listItem" onClick={this.onTodoClick(todo)}/> )
+    const todos = this.state.todos.map(todo => {
+      return (
+        <Link to={`/users/me/todos/${todo.id}`} key={todo.id} >
+          <Todo
+            todo={todo}
+            key={todo.id}
+            className="todos-Index_listItem"
+          />
+        </Link>
+      )
+    })
 
     return (
       <div className="todos-Index">
