@@ -4,6 +4,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import * as RootPage from 'web/pages';
 import * as TodoPage from 'web/pages/todos';
 import * as SessionPage from 'web/pages/users/sessions';
+import './App.scss';
 
 class App extends React.Component {
   render() {

@@ -1,1 +1,1 @@
-import './web/components/App';
+import 'web/components/App';
