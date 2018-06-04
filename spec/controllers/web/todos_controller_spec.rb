@@ -12,7 +12,7 @@ RSpec.describe Web::TodosController, type: :controller do
 
   describe '#index' do
     let(:user) { User.first! }
-    let(:todos) { create_list!(:todo, 10, user: user) }
+    let(:todos) { create_list!(:todo, 10, user: user, completed_at: nil) }
     before(:each) { sign_in(user) }
 
     it "assigns todos to @todos in the action" do
