@@ -9,12 +9,10 @@ export const axios = _axios.create({
   baseURL: `${location.protocol}//${location.host}`,
 });
 
-const todosUrl = '/users/1/todos';
+const todosUrl = '/users/me/todos';
 export const todos = {
-  //index: params => { return axios.post(todosUrl, params) },
-  index: () => { return axios.get('https://api.myjson.com/bins/17jy56') },
+  index: (params=null) => { return axios.get(todosUrl, params) },
   create: (params) => { return axios.post(todosUrl, params) },
-  //show: (id) => { return axios.get(`${todosUrl}/${id}`) },
   show: (id) => { return axios.get('https://api.myjson.com/bins/1bcb66') },
   update: (id, params) => { return axios.put('https://api.myjson.com/bins/1bcb66') },
 }
