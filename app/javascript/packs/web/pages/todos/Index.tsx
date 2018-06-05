@@ -9,8 +9,8 @@ export class Index extends React.Component<any, any> {
     this.state = { todos: [] };
     this.loadTodos();
 
-    this.addTodo = this.addTodo.bind(this)
-    this.createTodo = this.createTodo.bind(this)
+    this.addTodo = this.addTodo.bind(this);
+    this.createTodo = this.createTodo.bind(this);
   }
 
   loadTodos() {
@@ -32,16 +32,22 @@ export class Index extends React.Component<any, any> {
       .then(res => this.addTodo(res.data));
   }
 
+  updateTodo(todo, params) {
+    api
+      .todos
+      .update(todo.id, params)
+      .then(res => this.addTodo(res.data));
+  }
+
   render() {
     const todos = this.state.todos.map(todo => {
       return (
-        <Link to={`/users/me/todos/${todo.id}`} key={todo.id} >
-          <Todo
-            todo={todo}
-            key={todo.id}
-            className="todos-Index_listItem"
-          />
-        </Link>
+        <Todo
+          todo={todo}
+          key={todo.id}
+          className="todos-Index_listItem"
+          onTodoChange={(e) => this.updateTodo(todo, {completed_at: e.target.checked})}
+        />
       )
     })
 

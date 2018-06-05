@@ -16,4 +16,5 @@ export const todos = {
   create: (params) => { return axios.post(todosUrl, params) },
   //show: (id) => { return axios.get(`${todosUrl}/${id}`) },
   show: (id) => { return axios.get('https://api.myjson.com/bins/1bcb66') },
+  update: (id, params) => { return axios.put('https://api.myjson.com/bins/1bcb66') },
 }
