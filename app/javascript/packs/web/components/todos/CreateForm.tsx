@@ -31,10 +31,18 @@ export default class CreateForm extends React.Component<any, any> {
     e.preventDefault();
   }
 
+  clear() {
+    this.setState({
+      title: '',
+      deadline: null,
+      detail: '',
+    })
+  }
+
   render() {
     return (
       <div className={this.props.className + ' todos-CreateForm'}>
-        <form className="todos-CreateForm_form">
+        <form className="todos-CreateForm_form" ref="form">
 
           <div className="todos-CreateForm_formRow">
             <label className="todos-CreateForm_label">タイトル</label>

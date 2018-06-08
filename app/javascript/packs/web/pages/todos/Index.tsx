@@ -17,11 +17,11 @@ export class Index extends React.Component<any, any> {
     api
       .todos
       .index()
-      .then(res => this.setState({ todos: res.data }));
+      .then(res => this.setState({ todos: res.data.reverse() }));
   }
 
   addTodo(todo) {
-    this.state.todos.push(todo);
+    this.state.todos.unshift(todo);
     this.setState({ todos: this.state.todos });
   }
 
@@ -29,7 +29,11 @@ export class Index extends React.Component<any, any> {
     api
       .todos
       .create({todo})
-      .then(res => this.addTodo(res.data));
+      .then(res => {
+        this.addTodo(res.data);
+        const createForm = this.refs.createForm as CreateForm;
+        createForm.clear();
+      });
   }
 
   updateTodo(todo, params) {
@@ -56,7 +60,7 @@ export class Index extends React.Component<any, any> {
         <Header className="todos-Index_header"/>
         <div className="todos-Index_main">
           <div className="todos-Index_sidebar">
-            <CreateForm  className="todos-Index_createForm" onSubmitClick={this.createTodo}/>
+            <CreateForm  className="todos-Index_createForm" onSubmitClick={this.createTodo} ref="createForm"/>
           </div>
           <div className="todos-Index_list">
             { todos }
