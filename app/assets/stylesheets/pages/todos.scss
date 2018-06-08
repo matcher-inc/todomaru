@@ -12,12 +12,13 @@
   &_main {
     margin-top: $size_headerHeight;
     display: flex;
-    min-height: calc(100vh - #{$size_headerHeight} );
+    height: calc(100vh - #{$size_headerHeight} );
   }
   &_sidebar {
     width: $size_sidebarWidth;
     background: #ff0;
     padding: 15px;
+    height: 100%;
   }
   &_createForm {
   }
@@ -25,6 +26,7 @@
     flex: 1;
     background: #f0f;
     padding: 15px;
+    overflow-y: auto;
   }
   &_listItem {
     margin-bottom: 10px;
