@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as api from 'web/api';
 import { Link } from 'react-router-dom';
 import { CreateForm, Todo, Header } from 'web/components/todos';
+import { updateArray } from 'web/utils';
 
 export class Index extends React.Component<any, any> {
   constructor(props) {
@@ -40,7 +41,10 @@ export class Index extends React.Component<any, any> {
     api
       .todos
       .update(todo.id, params)
-      .then(res => this.addTodo(res.data));
+      .then(res => {
+        const newTodos = updateArray(this.state.todos, {id: todo.id}, res.data);
+        this.setState({todos: newTodos});
+      });
   }
 
   render() {
@@ -50,7 +54,7 @@ export class Index extends React.Component<any, any> {
           todo={todo}
           key={todo.id}
           className="todos-Index_listItem"
-          onTodoChange={(e) => this.updateTodo(todo, {completed_at: e.target.checked})}
+          onTodoChange={(e) => this.updateTodo(todo, {completed_at: e.target.checked ? new Date() : null })}
         />
       )
     })
