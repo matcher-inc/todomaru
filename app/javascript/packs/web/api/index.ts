@@ -13,6 +13,6 @@ const todosUrl = '/users/me/todos';
 export const todos = {
   index: (params=null) => { return axios.get(todosUrl, params) },
   create: (params) => { return axios.post(todosUrl, params) },
-  show: (id) => { return axios.get('https://api.myjson.com/bins/1bcb66') },
-  update: (id, params) => { return axios.put('https://api.myjson.com/bins/1bcb66') },
+  show: (id) => { return axios.get(`${todosUrl}/${id}`) },
+  update: (id, params) => { return axios.put(`${todosUrl}/${id}`, params) },
 }
