@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   scope module: :web, format: :json do
     root to: 'home#home'
+    get 'signed_in', to: 'home#signed_in'
     resources :users do
       resources :todos
     end
