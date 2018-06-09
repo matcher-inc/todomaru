@@ -1,1 +1,1 @@
-export { New } from './New'
+export { New, INewProps, INewState } from './New'
