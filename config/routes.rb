@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     delete 'sign_out', to: 'web/users/sessions#destroy'
   end
 
-  root to: 'web#home'
   scope module: :web, format: :json do
+    root to: 'home#home'
     resources :users do
       resources :todos
     end
