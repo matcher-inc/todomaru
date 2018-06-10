@@ -1,0 +1,12 @@
+.todos-Todo {
+  & {
+    padding: 15px;
+    background: #faa;
+  }
+  &_title {
+    font-weight: 700;
+  }
+  &_deadline {
+    font-size: 80%;
+  }
+}

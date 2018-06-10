@@ -1,0 +1,14 @@
+@import "constants";
+
+.todos-Header {
+  & {
+    background: $color_theme;
+  }
+  &_title {
+    margin: 0;
+    padding: 0 15px;
+    line-height: $size_headerHeight;
+    font-family: Hiragino Sans, "ヒラギノ角ゴシック";
+    font-weight: 700;
+  }
+}

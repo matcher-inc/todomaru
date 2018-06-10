@@ -1,0 +1,53 @@
+@import "constants";
+
+.todos-Index {
+  & {
+  }
+  &_header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: $size_headerHeight;
+  }
+  &_main {
+    margin-top: $size_headerHeight;
+    display: flex;
+    height: calc(100vh - #{$size_headerHeight} );
+  }
+  &_sidebar {
+    width: $size_sidebarWidth;
+    background: #ff0;
+    padding: 15px;
+    height: 100%;
+  }
+  &_createForm {
+  }
+  &_list {
+    flex: 1;
+    background: #f0f;
+    padding: 15px;
+    overflow-y: auto;
+  }
+  &_listItem {
+    margin-bottom: 10px;
+  }
+}
+
+.todos-Show {
+  &_todo {
+    width: 500px;
+    margin: 50px auto;
+    text-align: center;
+    background: #fe0;
+  }
+  &_row {
+    padding: 10px;
+  }
+  &_heading {
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: block;
+  }
+  &_value {
+  }
+}

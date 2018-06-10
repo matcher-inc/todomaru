@@ -1,0 +1,66 @@
+@mixin formStyle() {
+  display: block;
+  width: 100%;
+  padding: .5rem .75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #464a4c;
+  background-color: #fff;
+  background-image: none;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.todos-CreateForm {
+  & {
+    background: #0ff;
+    padding: 15px;
+  }
+  &_formRow {
+    margin-bottom: 15px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &_label {
+    font-size: 80%;
+    font-weight: 700;
+    line-height: 1;
+    display: block;
+    padding-bottom: 5px;
+  }
+  &_textField {
+    @include formStyle();
+    width: 100%;
+  }
+  &_textArea {
+    @include formStyle();
+  }
+  &_submit {
+    @include formStyle();
+    padding: 15px;
+    font-size: 80%;
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
+
+  .react-datepicker-wrapper,
+  .react-datepicker__input-container {
+    display: block;
+  }
+  .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {
+    padding: 0;
+  }
+  .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item {
+     box-sizing: border-box;
+  }
+}

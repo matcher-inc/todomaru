@@ -13,6 +13,7 @@ class App extends React.Component {
         <div>
           <Route exact path='/' component={RootPage.Home} />
           <Route path='/todos' component={TodoPage.Index} />
+          <Route path='/users/:userId/todos/:todoId' component={TodoPage.Show} />
           <Route path='/sign_in' component={SessionPage.New} />
         </div>
       </Router>
