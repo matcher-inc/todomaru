@@ -10,10 +10,8 @@ class Web::Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    super do
-      @user = current_user
-      return render # redirect回避
-    end
+    self.resource = warden.authenticate!(auth_options)
+    sign_in(resource_name, resource)
   end
 
   # DELETE /resource/sign_out
