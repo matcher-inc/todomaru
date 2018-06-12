@@ -7,6 +7,11 @@ class Web::TodosController < WebController
     @todos.each { |todo| authorize!(todo) }
   end
 
+  def show
+    user = User.preload(:todos).find(params[:user_id] || todo_params[:user_id])
+    @todo = user.todos.find(params[:id])
+  end
+
   def create
     user = User.preload(:todos).find(params[:user_id] || todo_params[:user_id])
     @todo = user.todos.new(todo_params)
